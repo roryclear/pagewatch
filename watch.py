@@ -33,7 +33,6 @@ def watchPages(pages):
         time.sleep(10)
         continue
 
-      print("FFS")
       texts = pages[url]
       for t in texts:
         if t in res:
