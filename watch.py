@@ -2,6 +2,7 @@ import http.client, urllib
 import requests
 import time
 import random
+import sys
 
 token = ""
 user = ""
@@ -41,12 +42,19 @@ def watchPages(pages):
     print(i)
     time.sleep(25)
 
+args = sys.argv
+print("args =",args)
+if len(args) < 5:
+  print("expected 4 arguments",len(args))
+  exit()
+
+url = args[1]
+text = args[2]
+user = args[3]
+token = args[4]
+
 pages = {}
 
-pages["https://www.websiteA.com"] = \
-["somehtml","sometextorsomething"]
-
-pages["https://www.websiteB.com"] = \
-["somehtml","sometextorsomething"]
+pages[url] = [text]
 
 watchPages(pages)
